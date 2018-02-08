@@ -12,6 +12,11 @@ import 'rxjs/add/operator/map';
 })
 export class AppComponent {
   title = 'app';
+  back1 = 'assets/image/bd3.jpg';
+  back2 = 'assets/image/pexels2.jpeg';
+  office = 'assets/image/office.jpg';
+  analyze = 'assets/image/analyze.jpg';
+  study = 'assets/image/study.jpg';
   date;
   constructor (private service: HomeService, private http: Http){
   }
