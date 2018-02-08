@@ -18,7 +18,7 @@ export class AppComponent {
   ngOnInit() {
     this.date = this.service.showTodayDate();
     console.log("this.date");
-    this.http.get("data/admin-ques/questions.json").
+    this.http.get("./assets/data/admin-ques/questions.json").
       map((response) => response.json()).
       subscribe((data) => console.log(data));
   }
