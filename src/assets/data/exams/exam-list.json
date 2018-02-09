@@ -1,0 +1,21 @@
+{
+    "data": [
+        {
+            "EFT_ID": "exam-list1",
+            "EFT_SL_NO": 1,
+            "isAdmin": true,
+            "isApproved": true,
+            "status": "before",
+            "isActive": true,
+            "userId": "001",
+            "examId": "111",
+            "date": "",
+            "duration": "30",
+            "startTime": "",
+            "questions": 30,
+            "category": "",
+            "details": "",
+            "notes": ""
+        }
+    ]
+}
