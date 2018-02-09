@@ -4,12 +4,11 @@
             "EFT_ID": "live_question1",
             "EFT_SL_NO": 1,
             "isAdmin": true,
-            "status": "before",
-            "isActive": true,
             "userId": "001",
             "examId": "111",
             "date": "",
             "startTime": "",
+            "questionId": ""
         }
     ]
 }

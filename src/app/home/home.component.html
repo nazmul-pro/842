@@ -1,0 +1,74 @@
+<div>
+  <div class="row menu-btn">
+      <div class="col s10">
+          <span class="header title">Exam For Today</span>
+      </div>
+      <div class="col s1">
+              <a><div class="login-btn">Login</div></a>
+      </div>
+      <div class="col s1">
+          <a><div class="signup-btn">Signup</div></a>
+      </div>
+  </div>
+  <router-outlet></router-outlet>
+  
+  <div class="parallax-container">
+      <div class="parallax"><img [src]="back1"/></div>
+  </div>
+  <div class="section white">
+      <div class="row container" style="min-height:0px;">
+          <div class="col s4">
+              <div class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" [src]="study">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Prepare Yourself<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">This is a link</a></p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Prepare Yourself<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                  </div>
+                </div>
+          </div>
+          <div class="col s4">
+              <div class="card">
+                  <div class="activator center-align waves-effect waves-block waves-light pulse-container">
+                      <span class="">
+                          <button class="pulse-button"><i class="material-icons white-text pt10">assignment</i></button>
+                          <!-- <i class="material-icons large ">play_circle_filled</i> -->
+                      </span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Live Exam<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">This is a link</a></p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Live Exam<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                  </div>
+                </div>
+          </div>
+          <div class="col s4">
+              <div class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" [src]="analyze">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Analyze Yourself<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">This is a link</a></p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Analyze Yourself<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                  </div>
+                </div>
+          </div>
+        </div>
+              
+  </div>
+  <div class="parallax-container">
+  <div class="parallax"><img [src]="back2"/></div>
+  </div>
+</div>
