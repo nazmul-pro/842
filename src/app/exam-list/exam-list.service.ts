@@ -8,6 +8,9 @@ export class ExamListService {
   getEftExamList(cb: (d, th) => void, th){
     this.http.get("./assets/data/exams/exam-list.json").
       map((response) => response.json()).
-      subscribe((data) => cb(data.data, th));
+      subscribe((data) => cb(data['data'], th)); 
+      // handle error call back , retry https://angular.io/guide/http
+      // subscribe((data) => cb(data['data'], th),
+      //error => this.error = error);
   }
 }
