@@ -506,3 +506,17 @@
 .mr110 {
 	margin-right: 110px;
 }
+
+/* Border Helper */
+.br {
+	border-right: 1px solid #e0e0e0 !important;
+}
+.bb {
+	border-bottom: 1px solid #e0e0e0 !important;
+}
+.bl {
+	border-left: 1px solid #e0e0e0 !important;
+}
+.bt {
+	border-top: 1px solid #e0e0e0 !important;
+}
