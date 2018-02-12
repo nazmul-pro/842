@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ExamListComponent } from './exam-list/exam-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { TimeLeftDirective } from './time-left.directive';
 
 const appRoutes: Routes = [
   { path: 'exams', component: ExamListComponent },
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ExamListComponent,
-    HomeComponent
+    HomeComponent,
+    TimeLeftDirective
   ],
   imports: [
     RouterModule.forRoot(

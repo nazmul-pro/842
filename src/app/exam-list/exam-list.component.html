@@ -1,20 +1,21 @@
 <div class="row">
   <div class="col s3 offset-s4">
-    <div class="card">
-      <div class="card-image waves-effect waves-block waves-light bb pb20">
-        <div class="eft-time">
-          8:30 <span class="eft-time-left">pm</span>
+    <div *ngFor="let exam of adminExamList" class="card">
+      <div class="card-image waves-effect waves-block waves-light bb pb-20">
+        <div class="eft-time" appTimeLeft>
+          {{exam.startTime}} <span class="eft-time-left">pm</span>
         </div>
         <div class="eft-time-left">
-            2 hr 30 min left
+            {{exam.left | async}} s
         </div>
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">40 Questions
+        <span class="card-title activator grey-text text-darken-4">
+          <span class="fw-300">{{exam.questions}}</span> <span class="fs-14">Questions</span>
           <i class="material-icons right">more_vert</i>
         </span>
-        <div class="card-front-info">
-            <div>Duration: 30min</div>
+        <div class="card-front-info pb-10">
+            <div>Duration: {{exam.duration}} min</div>
             <div>Topics: All</div>
             <div>Host: EFT Team</div>
         </div>
@@ -28,8 +29,34 @@
            
   </div>
 </div>
-<ul>
-  <li *ngFor="let hero of eftExamList">
-    {{ hero.duration }}
-  </li>
-</ul>
+<div class="row">
+  <div *ngFor="let exam of usersExamList" class="col s2">
+    <div class="card">
+      <div class="card-image waves-effect waves-block waves-light bb pb-20">
+        <div class="eft-time" (click)="getTimer(exam)">
+          {{exam.startTime}} <span class="eft-time-left">pm</span>
+        </div>
+        <div class="eft-time-left">
+            {{exam.left | async}} s
+        </div>
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">
+            <span class="fw-300">{{exam.questions}}</span> <span class="fs-14">Questions</span>
+          <i class="material-icons right">more_vert</i>
+        </span>
+        <div class="card-front-info">
+            <div>Duration: {{exam.duration}} min</div>
+            <div>Topics: All</div>
+            <div>Host: EFT Team</div>
+        </div>
+        <p><a href="#">Visit Exam Hall</a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
+    </div>
+           
+  </div>
+</div>
