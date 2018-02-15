@@ -21,7 +21,7 @@ export class ExamListComponent implements OnInit {
 
   ngOnInit() {
     this.getExamList();
-    // this.getTimer();
+    // this.getTimer(null);
   }
   
   getExamList() {
@@ -32,9 +32,11 @@ export class ExamListComponent implements OnInit {
     for(var i=0;i<length;i++){
       if(data[i] && data[i].isAdmin){
         th.adminExamList.push(data[i]);
+        th.getTimer(data[i]);
       }
       else if(data[i] && data[i].isAdmin==false){
         th.usersExamList.push(data[i]);
+        th.getTimer(data[i]);
       }
     }
     th.eftExamList = data;
