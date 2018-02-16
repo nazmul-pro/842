@@ -5,7 +5,6 @@ import {Observable} from 'rxjs/Observable'
 import 'rxjs/add/observable/timer'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/take'
-import { log } from 'util';
 @Component({
   selector: 'app-exam-list',
   templateUrl: './exam-list.component.html',
@@ -43,13 +42,43 @@ export class ExamListComponent implements OnInit {
   }
 
   getTimer(exam){
-    console.log("ran")
-    var counter = 600;  
-    var countDown = Observable.timer(0,1000)
-      .take(counter)
-      .map(() => --counter);
-      exam.left = countDown;
-      
+    let today1 = new Date().toISOString().slice(0,10);
+    let examDay1 = exam.date;
+    let today = new Date(today1);
+    let examDay = new Date(examDay1);
+    let diff = Math.abs(today.getTime() - examDay.getTime());
+    if(diff==0){
+      let counter;
+      let countDown
+      this.getMsDiff(exam, function(t){
+        if(t>0){
+          counter = t;
+          countDown = Observable.timer(0,1000)
+            .take(counter)
+            .map(() => --counter);
+            exam.left = countDown;
+          
+        }
+        else if(t<0 && t + parseInt(exam.duration)*60 < 0){
+          counter = null;
+          countDown = null;
+          exam.left = "It's Over";
+        }
+        else if(t<0 && t + parseInt(exam.duration)*60 >= 0){
+          counter = null;
+          countDown = null;
+          exam.left = "Exam is running...";
+        }        
+      });
+    }
+    else if(diff> 0){
+      exam.left = exam.date;
+    }  
+  }
+  getMsDiff(exam, callBack) {
+    let examInS = parseInt(exam.startTime.split(":")[0])*3600 + parseInt(exam.startTime.split(":")[1])*60;
+    let todayInS = new Date().getHours()*3600 + new Date().getMinutes()*60;
+    callBack(examInS - todayInS);
   }
 
 }

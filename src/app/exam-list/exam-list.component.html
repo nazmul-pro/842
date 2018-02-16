@@ -2,11 +2,11 @@
   <div class="col s3 offset-s4">
     <div *ngFor="let exam of adminExamList" class="card">
       <div class="card-image waves-effect waves-block waves-light bb pb-20">
-        <div class="eft-time" appTimeLeft>
+        <div class="eft-time">
           {{exam.startTime}} <span class="eft-time-left">pm</span>
         </div>
         <div class="eft-time-left">
-            {{exam.left | async}} s
+            {{exam.left }}
         </div>
       </div>
       <div class="card-content">
@@ -33,11 +33,11 @@
   <div *ngFor="let exam of usersExamList" class="col s2">
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light bb pb-20">
-        <div class="eft-time" (click)="getTimer(exam)">
+        <div class="eft-time">
           {{exam.startTime}} <span class="eft-time-left">pm</span>
         </div>
         <div class="eft-time-left">
-            {{exam.left | async}} s
+          {{exam.left}}
         </div>
       </div>
       <div class="card-content">

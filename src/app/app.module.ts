@@ -8,10 +8,11 @@ import { ExamListComponent } from './exam-list/exam-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TimeLeftDirective } from './time-left.directive';
-
+import { LiveComponent } from './live/live.component';
 const appRoutes: Routes = [
   { path: 'exams', component: ExamListComponent },
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  { path: 'live/:date/:time', component: LiveComponent }
 ];
 
 
@@ -20,7 +21,7 @@ const appRoutes: Routes = [
     AppComponent,
     ExamListComponent,
     HomeComponent,
-    TimeLeftDirective
+    LiveComponent
   ],
   imports: [
     RouterModule.forRoot(
