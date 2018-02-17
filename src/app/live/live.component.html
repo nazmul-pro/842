@@ -20,9 +20,9 @@
           </ul>
         <form action="#">
           <!-- items being paged -->
-          <div *ngFor="let item of pagedItems; let i = index">
-            <div>{{item.question}}</div>
-              <div>
+          <div *ngFor="let item of pagedItems; let i = index" class="pb-10">
+            <div><b class="mr-10">{{i+1}}.</b> {{item.question}}</div>
+              <div class="pl-30">
                 <span class="pr-20 pl-10 pt-10">
                     <input type="checkbox" id="{{i+'A'}}" (click)="checkOption(item.EFT_ID, item.opA)"/>
                     <label for="{{i+'A'}}">{{item.opA}}</label>
