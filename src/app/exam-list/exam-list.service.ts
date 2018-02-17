@@ -5,12 +5,12 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ExamListService {
   constructor(private http: Http) { }
-  getEftExamList(cb: (d, th) => void, th){
-    this.http.get("./assets/data/exams/exam-list.json").
+  getEftExamList(cb: (d, th) => void, th) {
+    this.http.get('./assets/data/exams/exam-list.json').
       map((response) => response.json()).
-      subscribe((data) => cb(data['data'], th)); 
+      subscribe((data) => cb(data['data'], th));
       // handle error call back , retry https://angular.io/guide/http
       // subscribe((data) => cb(data['data'], th),
-      //error => this.error = error);
+      // error => this.error = error);
   }
 }

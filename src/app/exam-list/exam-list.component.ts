@@ -11,9 +11,9 @@ import 'rxjs/add/operator/take'
   styleUrls: ['./exam-list.component.css']
 })
 export class ExamListComponent implements OnInit {
-  private adminExamList : any = [];
-  private usersExamList : any = [];
-  private list: number[] = [1,2,3];
+  private adminExamList: any = [];
+  private usersExamList: any = [];
+  private list: number[] = [1, 2, 3];
   countDown;
   counter;
   constructor(private service: ExamListService ) { }
@@ -22,18 +22,16 @@ export class ExamListComponent implements OnInit {
     this.getExamList();
     // this.getTimer(null);
   }
-  
   getExamList() {
     this.service.getEftExamList(this.myCB, this);
   }
-  myCB(data, th){
-    var length = data.length;
-    for(var i=0;i<length;i++){
-      if(data[i] && data[i].isAdmin){
+  myCB(data, th) {
+    const length = data.length;
+    for (let i = 0; i < length; i++) {
+      if (data[i] && data[i].isAdmin) {
         th.adminExamList.push(data[i]);
         th.getTimer(data[i]);
-      }
-      else if(data[i] && data[i].isAdmin==false){
+      } else if (data[i] && data[i].isAdmin === false) {
         th.usersExamList.push(data[i]);
         th.getTimer(data[i]);
       }
@@ -41,43 +39,39 @@ export class ExamListComponent implements OnInit {
     th.eftExamList = data;
   }
 
-  getTimer(exam){
-    let today1 = new Date().toISOString().slice(0,10);
-    let examDay1 = exam.date;
-    let today = new Date(today1);
-    let examDay = new Date(examDay1);
-    let diff = Math.abs(today.getTime() - examDay.getTime());
-    if(diff==0){
+  getTimer(exam) {
+    const today1 = new Date().toISOString().slice(0,10);
+    const examDay1 = exam.date;
+    const today = new Date(today1);
+    const examDay = new Date(examDay1);
+    const diff = Math.abs(today.getTime() - examDay.getTime());
+    if (diff === 0) {
       let counter;
-      let countDown
-      this.getMsDiff(exam, function(t){
-        if(t>0){
+      let countDown: any;
+      this.getMsDiff(exam, function(t) {
+        if (t > 0) {
           counter = t;
-          countDown = Observable.timer(0,1000)
+          countDown = Observable.timer(0, 1000)
             .take(counter)
             .map(() => --counter);
             exam.left = countDown;
-          
-        }
-        else if(t<0 && t + parseInt(exam.duration)*60 < 0){
+        } else if (t < 0 && t + parseInt(exam.duration) * 60 < 0) {
           counter = null;
           countDown = null;
-          exam.left = "It's Over";
-        }
-        else if(t<0 && t + parseInt(exam.duration)*60 >= 0){
+          exam.left = 'It\'s Over';
+        } else if (t < 0 && t + parseInt(exam.duration) * 60 >= 0) {
           counter = null;
           countDown = null;
-          exam.left = "Exam is running...";
-        }        
+          exam.left = 'Exam is running...';
+        }
       });
-    }
-    else if(diff> 0){
+    } else if (diff > 0) {
       exam.left = exam.date;
-    }  
+    }
   }
   getMsDiff(exam, callBack) {
-    let examInS = parseInt(exam.startTime.split(":")[0])*3600 + parseInt(exam.startTime.split(":")[1])*60;
-    let todayInS = new Date().getHours()*3600 + new Date().getMinutes()*60;
+    const examInS = parseInt(exam.startTime.split(":")[0]) * 3600 + parseInt(exam.startTime.split(":")[1]) * 60;
+    const todayInS = new Date().getHours() * 3600 + new Date().getMinutes() * 60;
     callBack(examInS - todayInS);
   }
 

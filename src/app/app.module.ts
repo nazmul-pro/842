@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HomeService } from './home/home.service';
 import { ExamListService } from './exam-list/exam-list.service';
+import { LiveService } from './live/live.service';
+import { PagerService } from './shared/pager.service';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ExamListComponent } from './exam-list/exam-list.component';
@@ -31,7 +33,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpModule
   ],
-  providers: [HomeService, ExamListService],
+  providers: [HomeService, ExamListService, LiveService, PagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,64 @@
-<p>
-  live works!
-</p>
+<div>
+  <div class="container">
+      <div class="text-center">
+          <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a (click)="setPage(1)">First</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+              </li>
+              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                  <a (click)="setPage(page)">{{page}}</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.currentPage + 1)">Next</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.totalPages)">Last</a>
+              </li>
+          </ul>
+        <form action="#">
+          <!-- items being paged -->
+          <div *ngFor="let item of pagedItems; let i = index">
+            <div>{{item.question}}</div>
+              <div>
+                <span class="pr-20 pl-10 pt-10">
+                    <input type="checkbox" id="{{i+'A'}}" (click)="checkOption(item.EFT_ID, item.opA)"/>
+                    <label for="{{i+'A'}}">{{item.opA}}</label>
+                </span>
+                <span class="pr-20 pl-10 pt-10">
+                    <input type="checkbox" id="{{i+'B'}}" (click)="checkOption(item.EFT_ID, item.opB)"/>
+                    <label for="{{i+'B'}}">{{item.opB}}</label>
+                </span>
+                <span class="pr-20 pl-10 pt-10">
+                    <input type="checkbox" id="{{i+'C'}}" (click)="checkOption(item.EFT_ID, item.opC)"/>
+                    <label for="{{i+'C'}}">{{item.opC}}</label>
+                </span>
+                <span class="pr-20 pl-10 pt-10">
+                    <input type="checkbox" id="{{i+'D'}}" (click)="checkOption(item.EFT_ID, item.opD)"/>
+                    <label for="{{i+'D'}}">{{item.opD}}</label>
+                </span>
+              </div>
+          </div>
+        </form>
+          <!-- pager -->
+          <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a (click)="setPage(1)">First</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+              </li>
+              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                  <a (click)="setPage(page)">{{page}}</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.currentPage + 1)">Next</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.totalPages)">Last</a>
+              </li>
+          </ul>
+      </div>
+  </div>
