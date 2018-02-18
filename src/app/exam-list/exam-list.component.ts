@@ -28,7 +28,13 @@ export class ExamListComponent implements OnInit {
   myCB(data, th) {
     const length = data.length;
     for (let i = 0; i < length; i++) {
-      if (data[i] && data[i].isAdmin) {
+      if(data[i].date && data[i].startTime) {
+        let newDate = data[i].date.replace(/-/g, "").substr(0,8);
+        let newTime = data[i].startTime.replace(/:/g, "").substr(0,4);
+        data[i].linkDate = newDate;
+        data[i].linkTime = newTime;
+      }
+      if (data[i] && data[i].isAdmin) {        
         th.adminExamList.push(data[i]);
         th.getTimer(data[i]);
       } else if (data[i] && data[i].isAdmin === false) {

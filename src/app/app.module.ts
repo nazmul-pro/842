@@ -14,7 +14,7 @@ import { LiveComponent } from './live/live.component';
 const appRoutes: Routes = [
   { path: 'exams', component: ExamListComponent },
   { path: '', component: HomeComponent },
-  { path: 'live/:date/:time', component: LiveComponent }
+  { path: 'live/:dt/:date/:tm/:time', component: LiveComponent }
 ];
 
 

@@ -25,15 +25,15 @@ export class LiveComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getQuestions();
+    this.getParams();
 
   }
   getParams() {
     this.route.params.subscribe( params =>
-      this.getQuestions());
+      this.getQuestions(params));
   }
-  getQuestions() {
-    this.service.getQues(this.myCB, this);
+  getQuestions(p) {
+    this.service.getQues(this.myCB, p, this);
   }
   myCB(data, th) {
     const length = data.length;

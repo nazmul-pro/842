@@ -6,9 +6,7 @@
             "isAdmin": true,
             "userId": "001",
             "examId": "111",
-            "date": "",
-            "startTime": "",
-            "questionId": ""
+            "questionId": "question1"
         }
     ]
 }
