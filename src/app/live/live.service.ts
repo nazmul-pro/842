@@ -10,9 +10,9 @@ export class LiveService {
     if(params && params.date && params.time){
       let date = params.date.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3");
       let time = params.time.replace(/(\d{2})(\d{2})/, "$1:$2");
-      this.getExamLists(function(list) {
+      this.getExamLists((list) => {
         if(list){
-          this.getExamByDateTime(function(exam) {
+          this.getExamByDateTime((exam) => {
             if(exam){
               this.checkDateTimeValidity(cb, exam);
             }
@@ -54,11 +54,11 @@ export class LiveService {
     const today = new Date(today1);
     const examDay = new Date(examDay1);
     const diff = Math.abs(today.getTime() - examDay.getTime());
-    if (diff === 0) {
+    if (diff != 0) {
       const examInS = parseInt(exam.startTime.split(":")[0]) * 3600 + parseInt(exam.startTime.split(":")[1]) * 60;
       const todayInS = new Date().getHours() * 3600 + new Date().getMinutes() * 60;
       let timeDiff = examInS - todayInS;
-      if(timeDiff<0 && exam.examId) { // Write some logic later
+      if(timeDiff<0 || exam.examId) { // Write some logic later
         this.getQuesIdsByExamId(cb, exam.examId);
       }
     }
@@ -67,11 +67,11 @@ export class LiveService {
     this.http.get('./assets/data/live-questions/questions.json').
       map((response) => response.json()).
       subscribe((data) => 
-      this.makeQuesIds(function(ids) {
+      this.makeQuesIds((ids) => {
         if(ids) {
           this.getQuesByIds(cb, ids);
         }
-      }, data, examId)
+      }, data['data'], examId)
     );
   }
   makeQuesIds(callBack, liveQ, examId) {
@@ -90,9 +90,9 @@ export class LiveService {
     }
   }
   getQuesByIds(cb, ids) {
-    this.http.get('./assets/data/live-questions/questions.json').
+    this.http.get('./assets/data/admin-ques/questions.json').
       map((response) => response.json()).
-      subscribe((data) => this.filterQues(cb, data, ids))
+      subscribe((data) => this.filterQues(cb, data['data'], ids))
   }
   filterQues(cb, data, ids) {
     if(data && ids) {
@@ -106,6 +106,8 @@ export class LiveService {
           }          
         }        
       }
+      console.log(filteredData);
+      
       cb(filteredData);
     }
   }
