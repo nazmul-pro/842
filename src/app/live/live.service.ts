@@ -5,10 +5,8 @@ import { format } from 'url';
 
 @Injectable()
 export class LiveService {
-  private context: any;
   constructor(private http: Http) { }
   getQues(cb: (d, th) => void, params, th) {
-    this.context = th;
     if(params && params.date && params.time){
       let date = params.date.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3");
       let time = params.time.replace(/(\d{2})(\d{2})/, "$1:$2");
@@ -108,7 +106,7 @@ export class LiveService {
           }          
         }        
       }
-      cb(filteredData, this.context);
+      cb(filteredData);
     }
   }
 
