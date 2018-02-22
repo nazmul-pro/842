@@ -1,13 +1,38 @@
+.cursor-pointer{
+	cursor: pointer;
+}
+
+.header{
+	z-index: 100;
+}
+.side-nav{
+	top: 65px;
+}
+
 /* You can add global styles to this file, and also import other style files */
 /*---------- SPACING ----------*/
 
 
 /* Padding Zero */
 
-.p0 {
+.p-0 {
 	padding: 0!important
 }
-
+.p-2 {
+	padding: 2px !important
+}
+.p-5 {
+	padding: 5px !important
+}
+.p-7 {
+	padding: 7px !important
+}
+.p-10 {
+	padding: 10px !important
+}
+.p-12 {
+	padding: 12px !important
+}
 
 /* Padding Top */
 
@@ -192,7 +217,9 @@
 .pl-100 {
 	padding-left: 100px;
 }
-
+.pl-300 {
+	padding-left: 300px;
+}
 
 /* Padding Right */
 

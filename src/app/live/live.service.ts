@@ -6,7 +6,7 @@ import { format } from 'url';
 @Injectable()
 export class LiveService {
   constructor(private http: Http) { }
-  getQues(cb: (d, th) => void, params, th) {
+  getQues(cb: (d) => void, params) {
     if(params && params.date && params.time){
       let date = params.date.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3");
       let time = params.time.replace(/(\d{2})(\d{2})/, "$1:$2");
@@ -21,9 +21,6 @@ export class LiveService {
       }, date, time);
       
     }
-    this.http.get('./assets/data/admin-ques/questions.json').
-      map((response) => response.json()).
-      subscribe((data) => cb(data['data'], th));
   }
   getExamLists(callBack, date, time) {
     this.http.get('./assets/data/exams/exam-list.json').

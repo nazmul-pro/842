@@ -59,17 +59,21 @@ export class ExamListComponent implements OnInit {
           counter = t;
           countDown = Observable.timer(0, 1000)
             .take(counter)
-            .map(() => --counter);
+            .map(() => --counter, console.log(counter));
             exam.left = countDown;
-        } else if (t < 0 && t + parseInt(exam.duration) * 60 < 0) {
-          counter = null;
-          countDown = null;
-          exam.left = 'It\'s Over';
-        } else if (t < 0 && t + parseInt(exam.duration) * 60 >= 0) {
-          counter = null;
-          countDown = null;
-          exam.left = 'Exam is running...';
-        }
+            // console.log(counter);
+            if (exam.left < 30 && exam.left + parseInt(exam.duration) * 60 < 1) {
+              console.log(exam.left);
+              
+              counter = null;
+              countDown = null;
+              exam.left = 'It\'s Over';
+            } else if (exam.left < 10 && exam.left + parseInt(exam.duration) * 60  >= 1) {
+              counter = null;
+              countDown = null;
+              exam.left = 'Exam is running...';
+            }
+        } 
       });
     } else if (diff > 0) {
       exam.left = exam.date;

@@ -33,13 +33,15 @@ export class LiveComponent implements OnInit {
       this.getQuestions(params));
   }
   getQuestions(p) {
-    this.service.getQues(this.myCB, p, this);
+    this.service.getQues((data) => {
+      if(data) {
+        const length = data.length;
+        this.allItems = data;
+        this.setPage(1);
+      }      
+    }, p);
   }
-  myCB(data, th) {
-    const length = data.length;
-    th.allItems = data;
-    th.setPage(1);
-  }
+ 
   setPage(page: number) {
     if (page < 1 || page > this.pager.totalPages) {
         return;

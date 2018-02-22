@@ -5,8 +5,16 @@
         <div class="eft-time">
           {{exam.startTime}} <span class="eft-time-left">pm</span>
         </div>
+        <!-- <div class="eft-time-left">
+            {{exam.left | async}}
+        </div> -->
+        
         <div class="eft-time-left">
-            {{exam.left }}
+            {{exam.left | async}} sec
+          <!-- {{exam.left/3600}} hr {{exam.left/60 % 60}} min {{exam.left % 60 | async}} sec -->
+        </div>
+        <div *ngIf="!countDown" class="eft-time-left">
+          {{exam.left}}
         </div>
       </div>
       <div class="card-content">

@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {APP_CONFIG, AppConfig} from './config/app.config';
 import { HomeService } from './home/home.service';
+import { PreparationService } from './preparation/preparation.service';
 import { ExamListService } from './exam-list/exam-list.service';
 import { LiveService } from './live/live.service';
 import { PagerService } from './shared/pager.service';
@@ -11,10 +13,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TimeLeftDirective } from './time-left.directive';
 import { LiveComponent } from './live/live.component';
+import { PreparationComponent } from './preparation/preparation.component';
+import { WarmupComponent } from './warmup/warmup.component';
 const appRoutes: Routes = [
   { path: 'exams', component: ExamListComponent },
   { path: '', component: HomeComponent },
-  { path: 'live/:dt/:date/:tm/:time', component: LiveComponent }
+  { path: 'live/:dt/:date/:tm/:time', component: LiveComponent },
+  { path: 'preparation', component: PreparationComponent },
+  { path: 'warmup', component: WarmupComponent }
 ];
 
 
@@ -23,7 +29,9 @@ const appRoutes: Routes = [
     AppComponent,
     ExamListComponent,
     HomeComponent,
-    LiveComponent
+    LiveComponent,
+    PreparationComponent,
+    WarmupComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -33,7 +41,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpModule
   ],
-  providers: [HomeService, ExamListService, LiveService, PagerService],
+  providers: [{provide: APP_CONFIG, useValue: AppConfig}, HomeService, PreparationService, ExamListService, LiveService, PagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
