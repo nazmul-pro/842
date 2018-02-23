@@ -17,3 +17,6 @@
 .active-nav-link{
     background: #d8e8ec;
 }
+.material-icons, .icon-text {
+    vertical-align: middle;
+  }

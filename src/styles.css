@@ -8,7 +8,9 @@
 .side-nav{
 	top: 65px;
 }
-
+.disable-click{
+	pointer-events: none;
+}
 /* You can add global styles to this file, and also import other style files */
 /*---------- SPACING ----------*/
 

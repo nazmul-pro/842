@@ -47,22 +47,23 @@
                 <div *ngFor="let item of pagedItems; let i = index" class="pb-10">
                   <div><b class="mr-10">{{i+1}}.</b> {{item.question}}</div>
                     <div class="pl-30">
-                      <span class="pr-20 pl-10 pt-10">
-                          <input type="checkbox" id="{{i+'A'}}" (click)="checkOption(item.EFT_ID, item.opA)"/>
-                          <label for="{{i+'A'}}">{{item.opA}}</label>
+                      <span class="pr-20 pl-10">                          
+                          <span *ngIf="item.opA===item.opR"> <i class="pr-5 green-text material-icons">check</i><span>{{item.opA}}</span></span>
+                          <span *ngIf="item.opA != item.opR"> <i class="pr-5 material-icons">check_box_outline_blank</i><span>{{item.opA}}</span></span>
                       </span>
-                      <span class="pr-20 pl-10 pt-10">
-                          <input type="checkbox" id="{{i+'B'}}" (click)="checkOption(item.EFT_ID, item.opB)"/>
-                          <label for="{{i+'B'}}">{{item.opB}}</label>
-                      </span>
-                      <span class="pr-20 pl-10 pt-10">
-                          <input type="checkbox" id="{{i+'C'}}" (click)="checkOption(item.EFT_ID, item.opC)"/>
-                          <label for="{{i+'C'}}">{{item.opC}}</label>
-                      </span>
-                      <span class="pr-20 pl-10 pt-10">
-                          <input type="checkbox" id="{{i+'D'}}" (click)="checkOption(item.EFT_ID, item.opD)"/>
-                          <label for="{{i+'D'}}">{{item.opD}}</label>
-                      </span>
+                      <span class="pr-20 pl-10">                          
+                            <span *ngIf="item.opB===item.opR"> <i class="pr-5 green-text material-icons">check</i><span>{{item.opB}}</span></span>
+                            <span *ngIf="item.opB != item.opR"> <i class="pr-5 material-icons">check_box_outline_blank</i><span>{{item.opB}}</span></span>
+                        </span>
+                        <span class="pr-20 pl-10">                          
+                                <span *ngIf="item.opC===item.opR"> <i class="pr-5 green-text material-icons">check</i><span>{{item.opC}}</span></span>
+                                <span *ngIf="item.opC != item.opR"> <i class="pr-5 material-icons">check_box_outline_blank</i><span>{{item.opC}}</span></span>
+                        </span>
+                        <span class="pr-20 pl-10">                          
+                                <span *ngIf="item.opD===item.opR"> <i class="pr-5 green-text material-icons">check</i><span>{{item.opD}}</span></span>
+                                <span *ngIf="item.opD != item.opR"> <i class="pr-5 material-icons">check_box_outline_blank</i><span>{{item.opD}}</span></span>
+                        </span>
+                      
                     </div>
                 </div>
               </form>
