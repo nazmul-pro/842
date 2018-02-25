@@ -37,6 +37,16 @@
     {
         "EFT_ID": "MNT",
         "EFT_SL_NO": 8,
-        "title": "মানুষিক দক্ষতা"
+        "title": "মানসিক দক্ষতা"
+    },
+    {
+        "EFT_ID": "ICT",
+        "EFT_SL_NO": 9,
+        "title": "ICT"
+    },
+    {
+        "EFT_ID": "COM",
+        "EFT_SL_NO": 10,
+        "title": "কম্পিউটার"
     }
 ]

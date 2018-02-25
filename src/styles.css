@@ -1,3 +1,7 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+.content-mid{
+	padding-left: 250px;
+}
 .cursor-pointer{
 	cursor: pointer;
 }
@@ -10,6 +14,29 @@
 }
 .disable-click{
 	pointer-events: none;
+}
+
+.nav-wrapper{
+	background-color: #67a4b3 !important;
+}
+.title{
+    font-family: 'Lobster', cursive;
+    font-size: 42px;
+    padding-left: 30px;
+    z-index: 100;
+    font-weight: lighter;
+}
+.sidenav-image{
+    opacity: 0.3;
+}
+.content-nav{
+    background: #d8e8ec;
+}
+.active-nav-link{
+    background: #d8e8ec;
+}
+.material-icons, .icon-text {
+    vertical-align: middle;
 }
 /* You can add global styles to this file, and also import other style files */
 /*---------- SPACING ----------*/

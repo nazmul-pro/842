@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {APP_CONFIG, AppConfig} from './config/app.config';
+import { APP_CONFIG, AppConfig } from './config/app.config';
 import { HomeService } from './home/home.service';
 import { PreparationService } from './preparation/preparation.service';
 import { ExamListService } from './exam-list/exam-list.service';
@@ -15,6 +15,8 @@ import { TimeLeftDirective } from './time-left.directive';
 import { LiveComponent } from './live/live.component';
 import { PreparationComponent } from './preparation/preparation.component';
 import { WarmupComponent } from './warmup/warmup.component';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 const appRoutes: Routes = [
   { path: 'exams', component: ExamListComponent },
   { path: '', component: HomeComponent },
@@ -39,6 +41,8 @@ const appRoutes: Routes = [
       { enableTracing: false } // <-- debugging purposes only
     ),
     BrowserModule,
+    CoreModule,
+    SharedModule,
     HttpModule
   ],
   providers: [{provide: APP_CONFIG, useValue: AppConfig}, HomeService, PreparationService, ExamListService, LiveService, PagerService],

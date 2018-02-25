@@ -1,3 +1,7 @@
-<p>
-  warmup works!
-</p>
+<mat-form-field>
+    <mat-select placeholder="Favorite food">
+      <mat-option *ngFor="let cat of cats" [value]="cat.title">
+        {{ cat.title }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
