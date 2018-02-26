@@ -1,7 +1,61 @@
-<mat-form-field>
-    <mat-select placeholder="Favorite food">
-      <mat-option *ngFor="let cat of cats" [value]="cat.title">
-        {{ cat.title }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+
+<!-- Another template App -->
+<div class="header navbar-fixed">
+  <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo"><span class="header title">Exam For Today</span></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a [routerLink]="['/live']">Live</a></li>
+          <li class="active"><a [routerLink]="['/warmup']">Warmup</a></li>
+          <li><a [routerLink]="['/preparation']">Preparetion</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Analyze</a></li>
+          <li><a href="#">Login</a></li>
+          <li style="height:50px;width:100px;">
+              <span class="p-10" style="color:black;border-radius:50px;background-color:aliceblue;">Signup</span>
+            
+          </li>
+        </ul>
+      </div>
+    </nav>
+</div>
+
+<div >
+  <ul id="slide-out" class="side-nav fixed" style="width:250px;">
+      <li>
+        <div class="userView" style="height:100px;">
+          <img class="background sidenav-image" width="250" height="100" src="https://media-exp2.licdn.com/mpr/mpr/AAEAAQAAAAAAAAOdAAAAJDVhZDU0ZjdkLTA3YjUtNDhiYi1hMWQxLTQ1YTQ1NTgyM2I3Mw.jpg">
+        </div>
+      </li>
+      <li *ngFor="let cat of cats; let i = index" [ngClass]="{'active-nav-link': i === 3}">
+          <a href="#!"><i class="material-icons">book</i>{{cat.title}}</a>
+      </li>
+  </ul>
+</div>
+<!-- Another template App -->
+<div class="row content-mid">
+  <div class="col s12 content-nav p-2 pl-10">
+    <span>Warmup</span> > <span>গাণিতিক বিষয়াবলি</span>
+  </div>
+</div>
+<div class="pl-300">
+  <div>
+    
+      <div class="row pl-10">
+          <div class="text-center">
+            <mat-form-field>
+              <mat-select placeholder="Number of Questions">
+                <mat-option *ngFor="let nmbr of [15,20,25,30]" [value]="nmbr">
+                  {{ nmbr }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <button mat-raised-button color="primary">Primary</button>
+      </div>
+    
+
+</div>
+
+
