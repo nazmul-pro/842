@@ -40,9 +40,9 @@
   </div>
 </div>
 <div class="pl-300">
-  <div>
+  <!-- <div> -->
     
-      <div class="row pl-10">
+      <!-- <div class="row pl-10">
           <div class="text-center">
             <mat-form-field>
               <mat-select placeholder="Number of Questions">
@@ -53,9 +53,22 @@
             </mat-form-field>
           </div>
           <button mat-raised-button color="primary">Primary</button>
-      </div>
+      </div> -->
     
-
-</div>
+      <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-select placeholder="Number of Questions">
+              <mat-option *ngFor="let nmbr of [15,20,25,30]" [value]="nmbr">
+                {{ nmbr }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <button mat-raised-button color="primary">Get Question Paper</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+<!-- </div> -->
 
 

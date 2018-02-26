@@ -1,3 +1,6 @@
 .mat-radio-button ~ .mat-radio-button {
     padding-right: 16px;
   }
+  .mat-button, .mat-raised-button{
+    background-color:#67a4b3;
+  }
