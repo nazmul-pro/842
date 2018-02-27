@@ -8,9 +8,16 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./warmup.component.css']
 })
 export class WarmupComponent implements OnInit {
+  private running: boolean;
+  private notStarted: boolean;
+  private stoped: boolean;
   cats: any;
   warmQues: any[]
-  constructor(private preServ: PreparationService) { }
+  constructor(private preServ: PreparationService) {
+    this.notStarted = true;
+    this.running = false;
+    this.stoped = false;
+   }
 
   ngOnInit() {
     this.preServ.getCats((data) => {
@@ -24,7 +31,8 @@ export class WarmupComponent implements OnInit {
     this.preServ.getWarmQues((data) => {
       if (data) {
         this.warmQues = data;
-        console.log(data);
+        this.running = true;
+        this.notStarted = false;
         
       }
     },cat, nmbr)

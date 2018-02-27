@@ -39,7 +39,7 @@
     <span>Warmup</span> > <span>গাণিতিক বিষয়াবলি</span>
   </div>
 </div>
-<div class="pl-300">
+<div *ngIf="notStarted" class="pl-300">
       <mat-grid-list cols="4" rowHeight="100px">
         <mat-grid-tile>
           <mat-form-field>
@@ -55,5 +55,17 @@
         </mat-grid-tile>
       </mat-grid-list>
 </div>
+<div *ngIf="running" class="pl-300">
+  <div *ngFor="let item of warmQues; let i = index" class="pb-10">
+    <div><b class="mr-10">{{i+1}}.</b> {{item.question}}</div>
+    <div>
+      <span class="pr-20 pl-10"> </span>
+    </div>
+  </div>
+</div>
+<div *ngIf="finished" class="pl-300">
 
+</div>
+<div *ngIf="stoped" class="pl-300">
 
+</div>
