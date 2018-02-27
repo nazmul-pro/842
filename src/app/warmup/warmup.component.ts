@@ -9,6 +9,7 @@ import {FormControl} from '@angular/forms';
 })
 export class WarmupComponent implements OnInit {
   cats: any;
+  warmQues: any[]
   constructor(private preServ: PreparationService) { }
 
   ngOnInit() {
@@ -18,5 +19,14 @@ export class WarmupComponent implements OnInit {
       }  
     });
     
+  }
+  getWarmQues(cat, nmbr) {
+    this.preServ.getWarmQues((data) => {
+      if (data) {
+        this.warmQues = data;
+        console.log(data);
+        
+      }
+    },cat, nmbr)
   }
 }
