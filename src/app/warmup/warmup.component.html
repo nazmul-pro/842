@@ -57,9 +57,12 @@
 </div>
 <div *ngIf="running" class="pl-300">
   <div *ngFor="let item of warmQues; let i = index" class="pb-10">
-    <div><b class="mr-10">{{i+1}}.</b> {{item.question}}</div>
+    <div class="pb-10"><b class="mr-10">{{i+1}}.</b> {{item.question}}</div>
     <div>
-      <span class="pr-20 pl-10"> </span>
+      <mat-checkbox class="pr-20 pl-30 fs-14 fw-300">{{item.opA}}</mat-checkbox>
+      <mat-checkbox class="pr-20 fs-14 fw-300">{{item.opB}}</mat-checkbox>
+      <mat-checkbox class="pr-20 fs-14 fw-300">{{item.opC}}</mat-checkbox>
+      <mat-checkbox class="pr-20 fs-14 fw-300">{{item.opD}}</mat-checkbox>
     </div>
   </div>
 </div>
