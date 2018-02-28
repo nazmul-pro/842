@@ -2,6 +2,12 @@
 .mat-radio-button ~ .mat-radio-button {
     padding-right: 16px;
   }
-  .mat-button, .mat-raised-button{
+  /* .accect-btn .mat-button, .mat-raised-button{
     background-color:#67a4b3;
   }
+  .warn-btn {
+    background-color:#db533b !important;
+  } */
+.correct-bg {
+  color: #00ca11;
+}

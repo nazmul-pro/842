@@ -37,4 +37,18 @@ export class WarmupComponent implements OnInit {
       }
     },cat, nmbr)
   }
+  checkExist(item, ans) {
+    if(item.checked==ans) {
+      return true;
+    }
+    else {
+      return false;
+    }
+
+  }
+  checkAnswer(item, ans) {
+    if (item && ans) {
+      item.checked = ans;
+    }
+  }
 }

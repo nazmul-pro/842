@@ -56,13 +56,35 @@
       </mat-grid-list>
 </div>
 <div *ngIf="running" class="pl-300">
+  <div>
+      <mat-grid-list cols="4" rowHeight="30px">
+          <mat-grid-tile [rowspan]="3">
+          </mat-grid-tile>
+          <mat-grid-tile>
+              <span class="pr-10"><button mat-raised-button color="primary" (click)="finishExam()">Finish Exam</button></span>
+              <span class="warn-btn"><button mat-raised-button color="warn" (click)="cancleExam()">Cancle Exam</button></span>
+          </mat-grid-tile>
+        </mat-grid-list>
+  </div>
   <div *ngFor="let item of warmQues; let i = index" class="pb-10">
     <div class="pb-10"><b class="mr-10">{{i+1}}.</b> {{item.question}}</div>
     <div>
-      <mat-checkbox class="pr-20 pl-30 fs-14 fw-300">{{item.opA}}</mat-checkbox>
-      <mat-checkbox class="pr-20 fs-14 fw-300">{{item.opB}}</mat-checkbox>
-      <mat-checkbox class="pr-20 fs-14 fw-300">{{item.opC}}</mat-checkbox>
-      <mat-checkbox class="pr-20 fs-14 fw-300">{{item.opD}}</mat-checkbox>
+      <i (click)="checkAnswer(item, item.opA)" *ngIf="!checkExist(item, item.opA)"
+         class="pr-20 pl-30 material-icons">check_box_outline_blank</i>
+         <i (click)="checkAnswer(item, item.opA)" *ngIf="checkExist(item, item.opA)"
+         class="pr-20 pl-30 material-icons correct-bg">check_box</i> {{item.opA}}
+         <i (click)="checkAnswer(item, item.opB)" *ngIf="!checkExist(item, item.opB)"
+         class="pr-20 pl-30 material-icons">check_box_outline_blank</i>
+         <i (click)="checkAnswer(item, item.opB)" *ngIf="checkExist(item, item.opB)"
+         class="pr-20 pl-30 material-icons correct-bg">check_box</i> {{item.opB}}
+         <i (click)="checkAnswer(item, item.opC)" *ngIf="!checkExist(item, item.opC)"
+         class="pr-20 pl-30 material-icons">check_box_outline_blank</i> 
+         <i (click)="checkAnswer(item, item.opC)" *ngIf="checkExist(item, item.opC)"
+         class="pr-20 pl-30 material-icons correct-bg">check_box</i> {{item.opC}}
+         <i (click)="checkAnswer(item, item.opD)" *ngIf="!checkExist(item, item.opD)"
+         class="pr-20 pl-30 material-icons">check_box_outline_blank</i>
+         <i (click)="checkAnswer(item, item.opD)" *ngIf="checkExist(item, item.opD)"
+         class="pr-20 pl-30 material-icons correct-bg">check_box</i> {{item.opD}}
     </div>
   </div>
 </div>
