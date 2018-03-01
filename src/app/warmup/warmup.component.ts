@@ -9,14 +9,17 @@ import {FormControl} from '@angular/forms';
 })
 export class WarmupComponent implements OnInit {
   private running: boolean;
+  private finished: boolean;
   private notStarted: boolean;
   private stoped: boolean;
+  private result: {}
   cats: any;
   warmQues: any[]
   constructor(private preServ: PreparationService) {
     this.notStarted = true;
-    this.running = false;
-    this.stoped = false;
+    // this.running = false;
+    // this.stoped = false;
+    // this.result = {}
    }
 
   ngOnInit() {
@@ -50,5 +53,36 @@ export class WarmupComponent implements OnInit {
     if (item && ans) {
       item.checked = ans;
     }
+  }
+
+  finishExam() {
+    var cAns = 0, wAns = 0, nAns = 0;
+    var ques = this.warmQues;
+    for(let qI=0; qI < ques.length; qI++) {
+      if (ques[qI].checked) {
+        if (ques[qI].checked === ques[qI].opR) {
+          cAns++;
+        }
+        else {
+          wAns++;          
+        }
+      }
+      else {
+        nAns++;
+      }
+    }
+    var tMarks = cAns - (wAns*0.5);
+    this.result = {
+      "tQues": ques.length,
+      "cAns" : cAns,
+      "wAns"  : wAns,
+      "nAns"  : nAns,
+      "tMarks": tMarks
+
+    }
+    console.log(this.result);
+    
+    this.running = false;
+    this.finished = true;
   }
 }
