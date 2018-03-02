@@ -1,3 +1,27 @@
+
+<!-- Another template App -->
+<div class="header navbar-fixed">
+  <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo"><span class="header title">Exam For Today</span></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="active"><a [routerLink]="['/live']">Live</a></li>
+          <li><a [routerLink]="['/warmup']">Warmup</a></li>
+          <li><a [routerLink]="['/preparation']">Preparetion</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Analyze</a></li>
+          <li><a href="#">Login</a></li>
+          <li style="height:50px;width:100px;">
+              <span class="p-10" style="color:black;border-radius:50px;background-color:aliceblue;">Signup</span>
+            
+          </li>
+        </ul>
+      </div>
+    </nav>
+</div>
+
+<!-- Another template App -->
 <div class="row">
   <div class="col s3 offset-s4">
     <div *ngFor="let exam of adminExamList" class="card">
@@ -10,10 +34,6 @@
         </div> -->
         
         <div class="eft-time-left">
-            {{exam.left | async}} sec
-          <!-- {{exam.left/3600}} hr {{exam.left/60 % 60}} min {{exam.left % 60 | async}} sec -->
-        </div>
-        <div *ngIf="!countDown" class="eft-time-left">
           {{exam.left}}
         </div>
       </div>
@@ -37,8 +57,8 @@
 
   </div>
 </div>
-<div class="row">
-  <div *ngFor="let exam of usersExamList" class="col s2">
+<div class="row  pl-100 pr-100">
+  <div *ngFor="let exam of usersExamList" class="col s3">
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light bb pb-20">
         <div class="eft-time">

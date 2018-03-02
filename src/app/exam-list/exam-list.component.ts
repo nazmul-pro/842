@@ -46,7 +46,10 @@ export class ExamListComponent implements OnInit {
   }
 
   getTimer(exam) {
-    const today1 = new Date().toISOString().slice(0,10);
+    var today2 = new Date();
+    today2.setHours(today2.getHours() + 6);
+    const today1 = today2.toISOString().slice(0,10);
+    
     const examDay1 = exam.date;
     const today = new Date(today1);
     const examDay = new Date(examDay1);
@@ -59,20 +62,29 @@ export class ExamListComponent implements OnInit {
           counter = t;
           countDown = Observable.timer(0, 1000)
             .take(counter)
-            .map(() => --counter, console.log(counter));
-            exam.left = countDown;
-            // console.log(counter);
-            if (exam.left < 30 && exam.left + parseInt(exam.duration) * 60 < 1) {
-              console.log(exam.left);
-              
-              counter = null;
-              countDown = null;
-              exam.left = 'It\'s Over';
-            } else if (exam.left < 10 && exam.left + parseInt(exam.duration) * 60  >= 1) {
-              counter = null;
-              countDown = null;
-              exam.left = 'Exam is running...';
-            }
+            .map(() => --counter, function (x) {  });
+            
+            var subscription = countDown.subscribe(
+              function (x) {
+                // exam.left = counter;
+                var hours   = Math.floor(counter / 3600);
+                var minutes = Math.floor((counter - (hours * 3600)) / 60);
+                var seconds = counter - (hours * 3600) - (minutes * 60);
+
+                // if (hours   < 10) {hours   = "0"+hours;}
+                // if (minutes < 10) {minutes = "0"+minutes;}
+                // if (seconds < 10) {seconds = "0"+seconds;}
+                var time    = hours+':'+minutes+':'+seconds + ' left';
+                exam.left = time;
+              },
+              function (err) {
+                  console.log('Error: ' + err);   
+              },
+              function () {
+                exam.left = 'Exam is running...';
+                  // console.log('Completed');   
+              });
+            
         } 
       });
     } else if (diff > 0) {
@@ -81,7 +93,7 @@ export class ExamListComponent implements OnInit {
   }
   getMsDiff(exam, callBack) {
     const examInS = parseInt(exam.startTime.split(":")[0]) * 3600 + parseInt(exam.startTime.split(":")[1]) * 60;
-    const todayInS = new Date().getHours() * 3600 + new Date().getMinutes() * 60;
+    const todayInS = new Date().getHours() * 3600 + new Date().getMinutes() * 60 + new Date().getSeconds();
     callBack(examInS - todayInS);
   }
 

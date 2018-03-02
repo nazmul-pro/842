@@ -18,7 +18,7 @@ import { WarmupComponent } from './warmup/warmup.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 const appRoutes: Routes = [
-  { path: 'exams', component: ExamListComponent },
+  { path: 'live', component: ExamListComponent },
   { path: '', component: HomeComponent },
   { path: 'live/:dt/:date/:tm/:time', component: LiveComponent },
   { path: 'preparation', component: PreparationComponent },
