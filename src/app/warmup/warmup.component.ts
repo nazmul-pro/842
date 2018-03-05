@@ -8,11 +8,11 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./warmup.component.css']
 })
 export class WarmupComponent implements OnInit {
-  private running: boolean;
-  private finished: boolean;
-  private notStarted: boolean;
-  private stoped: boolean;
-  private result: {}
+  running: boolean;
+  finished: boolean;
+  notStarted: boolean;
+  stoped: boolean;
+  result: {}
   cats: any;
   warmQues: any[]
   constructor(private preServ: PreparationService) {

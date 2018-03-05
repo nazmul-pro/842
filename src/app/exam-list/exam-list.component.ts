@@ -11,9 +11,9 @@ import 'rxjs/add/operator/take'
   styleUrls: ['./exam-list.component.css']
 })
 export class ExamListComponent implements OnInit {
-  private adminExamList: any = [];
-  private usersExamList: any = [];
-  private list: number[] = [1, 2, 3];
+  adminExamList: any = [];
+  usersExamList: any = [];
+  list: number[] = [1, 2, 3];
   countDown;
   counter;
   constructor(private service: ExamListService ) { }

@@ -1,0 +1,52 @@
+[
+    {
+        "EFT_ID": "BNG",
+        "EFT_SL_NO": 1,
+        "title": "বাংলাদেশ"
+    },
+    {
+        "EFT_ID": "BNS",
+        "EFT_SL_NO": 2,
+        "title": "বাংলা সাহিত্য"
+    },
+    {
+        "EFT_ID": "ENG",
+        "EFT_SL_NO": 3,
+        "title": "English"
+    },
+    {
+        "EFT_ID": "MAT",
+        "EFT_SL_NO": 4,
+        "title": "গাণিতিক বিষয়াবলী"
+    },
+    {
+        "EFT_ID": "INT",
+        "EFT_SL_NO": 5,
+        "title": "আর্ন্তজাতিক"
+    },
+    {
+        "EFT_ID": "GEO",
+        "EFT_SL_NO": 6,
+        "title": "ভূগোল"
+    },
+    {
+        "EFT_ID": "GSC",
+        "EFT_SL_NO": 7,
+        "title": "সাধারণ বিজ্ঞান"
+    },
+    {
+        "EFT_ID": "MNT",
+        "EFT_SL_NO": 8,
+        "title": "মানসিক দক্ষতা"
+    },
+    {
+        "EFT_ID": "ICT",
+        "EFT_SL_NO": 9,
+        "title": "ICT"
+    },
+    {
+        "EFT_ID": "COM",
+        "EFT_SL_NO": 10,
+        "title": "কম্পিউটার"
+    }
+]

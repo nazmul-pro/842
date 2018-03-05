@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { ExamListComponent } from './exam-list/exam-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { TimeLeftDirective } from './time-left.directive';
 import { LiveComponent } from './live/live.component';
 import { PreparationComponent } from './preparation/preparation.component';
 import { WarmupComponent } from './warmup/warmup.component';
