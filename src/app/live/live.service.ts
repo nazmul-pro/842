@@ -51,7 +51,7 @@ export class LiveService {
     const today = new Date(today1);
     const examDay = new Date(examDay1);
     const diff = Math.abs(today.getTime() - examDay.getTime());
-    if (diff != 0) {
+    if (diff === 0) {
       const examInS = parseInt(exam.startTime.split(":")[0]) * 3600 + parseInt(exam.startTime.split(":")[1]) * 60;
       const todayInS = new Date().getHours() * 3600 + new Date().getMinutes() * 60;
       let timeDiff = examInS - todayInS;

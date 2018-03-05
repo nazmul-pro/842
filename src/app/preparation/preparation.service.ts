@@ -18,6 +18,11 @@ export class PreparationService {
       map((response) => response.json()).
       subscribe((data) => callBack(data)
       );
+      this.http.get('http://localhost:8000/families/').
+      map((response) => response.json()).
+      subscribe((data) => console.log(data)
+      
+      );
   }
   getPrepQues(callBack: (d) => void, catId) {
     if (catId) {

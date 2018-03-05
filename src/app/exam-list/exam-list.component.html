@@ -29,12 +29,11 @@
         <div class="eft-time">
           {{exam.startTime}} <span class="eft-time-left">pm</span>
         </div>
-        <!-- <div class="eft-time-left">
-            {{exam.left | async}}
-        </div> -->
-        
         <div class="eft-time-left">
           {{exam.left}}
+        </div>
+        <div *ngIf="exam.isOver" class="eft-time-left">
+          It's Over
         </div>
       </div>
       <div class="card-content">
@@ -66,6 +65,9 @@
         </div>
         <div class="eft-time-left">
           {{exam.left}}
+        </div>
+        <div *ngIf="exam.isOver" class="eft-time-left">
+          It's Over
         </div>
       </div>
       <div class="card-content">

@@ -82,13 +82,23 @@ export class ExamListComponent implements OnInit {
               },
               function () {
                 exam.left = 'Exam is running...';
-                  // console.log('Completed');   
+                // this.fireWhenFinish(t, exam)
+                   
               });
             
         } 
+        else if(t <= 0 && t+exam.duration*60 > 0) {
+          exam.left = 'Exam is running.. :)';
+          // this.fireWhenFinish(t, exam)
+
+        }
+        else {
+          exam.left = 'It\'s Over.. :(';
+        }
       });
     } else if (diff > 0) {
       exam.left = exam.date;
+      exam.isOver = true;
     }
   }
   getMsDiff(exam, callBack) {
@@ -96,5 +106,15 @@ export class ExamListComponent implements OnInit {
     const todayInS = new Date().getHours() * 3600 + new Date().getMinutes() * 60 + new Date().getSeconds();
     callBack(examInS - todayInS);
   }
+
+  fireWhenFinish(t, exam) {
+    if (t && exam) {
+      var countDown = Observable.timer(0, t+exam.duration*60*1000)
+    .take(1)
+    .map(() => exam.left="It's Over :(");
+    }    
+  }
+
+
 
 }

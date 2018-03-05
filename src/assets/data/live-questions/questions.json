@@ -13,7 +13,7 @@
             "EFT_SL_NO": 2,
             "isAdmin": true,
             "userId": "001",
-            "examId": "1112",
+            "examId": "111",
             "questionId": "question2"
         },
         {
@@ -21,7 +21,7 @@
             "EFT_SL_NO": 1,
             "isAdmin": true,
             "userId": "001",
-            "examId": "1112",
+            "examId": "111",
             "questionId": "question3"
         },
         {
