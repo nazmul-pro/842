@@ -11,6 +11,7 @@ import 'rxjs/add/operator/switchMap';
 export class LiveComponent implements OnInit {
   // array of all items to be paged
   private allItems: any[];
+  params: any
 
   // pager object
   pager: any = {};
@@ -26,19 +27,27 @@ export class LiveComponent implements OnInit {
 
   ngOnInit() {
     this.getParams();
-
   }
   getParams() {
-    this.route.params.subscribe( params =>
+    this.route.params.subscribe( params =>      
       this.getQuestions(params));
   }
   getQuestions(p) {
-    this.service.getQues((data) => {
-      if(data) {
-        const length = data.length;
+    console.log("called");
+    
+    this.params=p
+    this.service.getQues((data, left) => {
+      if(data) {        
         this.allItems = data;
         this.setPage(1);
-      }      
+      }
+      else if(left> 0) {
+        setInterval(()=> {
+          this.getQuestions(this.params);
+        }, left*1000);
+      }
+      console.log(left);
+           
     }, p);
   }
  

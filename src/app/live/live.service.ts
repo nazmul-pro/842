@@ -5,8 +5,9 @@ import { format } from 'url';
 
 @Injectable()
 export class LiveService {
+  left: number=null;
   constructor(private http: Http) { }
-  getQues(cb: (d) => void, params) {
+  getQues(cb: (d, l) => void, params) {
     if(params && params.date && params.time){
       let date = params.date.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3");
       let time = params.time.replace(/(\d{2})(\d{2})/, "$1:$2");
@@ -52,11 +53,15 @@ export class LiveService {
     const examDay = new Date(examDay1);
     const diff = Math.abs(today.getTime() - examDay.getTime());
     if (diff === 0) {
-      const examInS = parseInt(exam.startTime.split(":")[0]) * 3600 + parseInt(exam.startTime.split(":")[1]) * 60;
-      const todayInS = new Date().getHours() * 3600 + new Date().getMinutes() * 60;
-      let timeDiff = examInS - todayInS;
-      if(timeDiff<0 || exam.examId) { // Write some logic later
+      const examInSec = parseInt(exam.startTime.split(":")[0]) * 3600 + parseInt(exam.startTime.split(":")[1]) * 60;
+      const todayInSec = new Date().getHours() * 3600 + new Date().getMinutes() * 60 + new Date().getSeconds();
+      let timeDiff = examInSec - todayInSec;
+      this.left = timeDiff;
+      if(timeDiff<0 && exam.examId) { // Write some logic later
         this.getQuesIdsByExamId(cb, exam.examId);
+      }
+      else {
+        cb(null, this.left);
       }
     }
   }
@@ -105,7 +110,7 @@ export class LiveService {
       }
       console.log(filteredData);
       
-      cb(filteredData);
+      cb(filteredData, this.left);
     }
   }
 
