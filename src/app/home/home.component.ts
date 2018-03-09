@@ -26,6 +26,16 @@ export class HomeComponent implements OnInit {
     this.http.get("./assets/data/admin-ques/questions.json").
       map((response) => response.json()).
       subscribe((data) => console.log(data));
+      var f= {
+        "title": "ggg",
+        "description": "all pro",
+        "unit": "20",
+        "minQuantity": 2
+      }
+      this.http.get('http://127.0.0.1:8000/families/').
+      map((response) => response.json()).
+      subscribe((data) => console.log(data)
+      )
   }
 
 }

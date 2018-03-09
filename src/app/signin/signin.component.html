@@ -1,0 +1,62 @@
+
+<!-- Another template App -->
+<div class="header navbar-fixed login-bg">
+  <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo"><span class="header title">Exam For Today</span></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a [routerLink]="['/live']">Live</a></li>
+        <li><a [routerLink]="['/warmup']">Warmup</a></li>
+        <li><a [routerLink]="['/preparation']">Preparetion</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Analyze</a></li>
+          <li class="active"><a [routerLink]="['/login']">Login</a></li>
+          <li style="height:50px;width:100px;">
+              <a [routerLink]="['/signup']">
+                <span class="p-10" style="color:black;border-radius:50px;background-color:aliceblue;">Signup</span>
+              </a>
+              
+            
+          </li>
+        </ul>
+      </div>
+    </nav>
+</div>
+<!-- Another template App -->
+<div class="login-bg pt-30 pb-50">
+  <div style="margin-left: auto; margin-right:auto;width:400px;">
+    <mat-card>
+      <div *ngIf="this.requestType == 1">
+        <div>Login</div>
+        <div style="width:100%;">
+          <mat-form-field>
+            <input matInput [(ngModel)]="email" placeholder="Email or Phone">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput [(ngModel)]="password" placeholder="Password">
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="accent" (click)="login(email, password)">Login</button>
+        </div>
+        <div *ngIf="this.requestType == 0">
+          <div>Signup</div>
+          <div style="width:100%;">
+              <mat-form-field>
+                  <input matInput [(ngModel)]="email" placeholder="Full Name">
+                </mat-form-field>
+            <mat-form-field>
+              <input matInput [(ngModel)]="email" placeholder="Email or Phone">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [(ngModel)]="password" placeholder="Password">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="password" placeholder="Confirm Password">
+              </mat-form-field>
+          </div>
+          <button mat-raised-button color="accent" (click)="login(email, password)">Signup</button>
+          </div>
+    </mat-card>
+  </div>
+</div>
