@@ -29,8 +29,8 @@ export class SigninComponent implements OnInit {
     }
   }
 
-  login(email, password){
-    console.log(email + password);
+  login(name, email, password){
+    
     
   }
 
