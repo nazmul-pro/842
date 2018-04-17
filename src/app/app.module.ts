@@ -19,6 +19,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { SigninComponent } from './signin/signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SigninService } from './signin/signin.service';
 const appRoutes: Routes = [
   { path: 'live', component: ExamListComponent },
   { path: '', component: HomeComponent },
@@ -52,7 +53,15 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule
   ],
-  providers: [{provide: APP_CONFIG, useValue: AppConfig}, HomeService, PreparationService, ExamListService, LiveService, PagerService],
+  providers: [{provide: APP_CONFIG, useValue: AppConfig},
+     HomeService,
+     PreparationService, 
+     ExamListService, 
+     LiveService, 
+     PagerService,
+     SigninService
+    
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
